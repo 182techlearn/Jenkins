@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "ap-south-1" # adjust to your region
+  region = "us-east-1" # adjust to your region
 }
 
 resource "aws_instance" "Jenkins_lab" {
-  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI (update as needed)
-  instance_type = "t2.micro"
+  ami           = "ami-081b0a6eac00b4f53" # Amazon Linux 2 AMI (update as needed)
+  instance_type = "t3.micro"
 
   tags = {
     Name = "Linux-jenkins-EC2"
