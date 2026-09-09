@@ -9,5 +9,6 @@ resource "aws_instance" "Jenkins_lab" {
 
   tags = {
     Name = "Linux-jenkins-EC2"
+    Lab = "jenkins"
   }
 }
