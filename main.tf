@@ -1,13 +1,24 @@
 provider "aws" {
-  region = "us-east-1" # adjust to your region
+  region = "ap-south-1"
 }
 
-resource "aws_instance" "Jenkins_lab" {
-  ami           = "ami-081b0a6eac00b4f53" # Amazon Linux 2 AMI (update as needed)
+terraform {
+  backend "s3" {
+    bucket         = "my-terraform-state-bucket"
+    key            = "ec2/terraform.tfstate"
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-locks"
+  }
+}
+
+resource "aws_instance" "LinuxMachine" {
+  ami           = "ami-090d68841c2a28756"        # replace with valid AMI
   instance_type = "t3.micro"
-  key_name      = "sshkey-si"
+  key_name      = "my-keypair"      # already created in AWS
 
   tags = {
-    Name = "Linux-jenkins-EC2"
+    Name        = "MyEC2"
+    Environment = "Dev"
+    Owner       = "Silambu"
   }
 }
