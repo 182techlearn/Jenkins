@@ -17,7 +17,7 @@ resource "aws_instance" "LinuxMachine" {
   key_name      = "sshkey-si"     # already created in AWS
 
   tags = {
-    Name        = "MyEC2"
+    Name        = "LinuxMachine"
     Environment = "Dev"
     Owner       = "Silambu"
   }
