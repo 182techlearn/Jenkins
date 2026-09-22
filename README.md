@@ -1,2 +1,2 @@
 # Jenkins
-Jenkins practice 
+Jenkins practice with git pipeline 
