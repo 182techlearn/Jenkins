@@ -47,3 +47,14 @@ resource "aws_instance" "LinuxMachine" {
     Owner       = "Silambu"
   }
 }
+resource "aws_instance" "LinuxMachine1" {
+  ami           = "ami-090d68841c2a28756"        # replace with valid AMI
+  instance_type = "t3.micro"
+  key_name      = "sshkey-si"     # already created in AWS
+
+  tags = {
+    Name        = "webserver_Tomcat"
+    Environment = "Dev"
+    Owner       = "Silambu"
+  }
+}
