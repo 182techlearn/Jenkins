@@ -58,3 +58,33 @@ resource "aws_instance" "LinuxMachine1" {
     Owner       = "Silambu"
   }
 }
+
+data "aws_ami" "windows_2022" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["Windows_Server-2022-English-Full-Base-*"]
+  }
+}
+resource "aws_instance" "windows_server" {
+  ami           = data.aws_ami.windows_2022.id
+  instance_type = "t2.micro" 
+  key_name      = "sshkey-si"
+
+  # Allocate exactly 30GB to maximize the free tier storage tier
+  root_block_device {
+    volume_size           = 30
+    volume_type           = "gp3"
+    delete_on_termination = true
+  }
+
+  # Required to grab the generated Windows password later
+  get_password_data = true
+
+  tags = {
+    Name        = "WindowsServer"
+    Environment = "Dev"
+  }
+}
