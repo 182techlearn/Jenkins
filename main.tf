@@ -84,7 +84,7 @@ resource "aws_instance" "windows_server" {
   get_password_data = true
 
   tags = {
-    Name        = "WindowsServer"
+    Name        = "WindowsServer_webserver"
     Environment = "Dev"
   }
 }
