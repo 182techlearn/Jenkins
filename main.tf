@@ -70,7 +70,7 @@ data "aws_ami" "windows_2022" {
 }
 resource "aws_instance" "windows_server" {
   ami           = data.aws_ami.windows_2022.id
-  instance_type = "t2.micro" 
+  instance_type = "t3.micro" 
   key_name      = "sshkey-si"
 
   # Allocate exactly 30GB to maximize the free tier storage tier
