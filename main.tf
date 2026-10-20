@@ -58,7 +58,7 @@ resource "aws_instance" "LinuxMachine1" {
     Owner       = "Silambu"
   }
 }
-
+/*
 data "aws_ami" "windows_2022" {
   most_recent = true
   owners      = ["amazon"]
@@ -87,4 +87,4 @@ resource "aws_instance" "windows_server" {
     Name        = "WindowsServer_wserver"
     Environment = "Dev"
   }
-}
+}*/
