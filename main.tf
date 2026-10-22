@@ -58,6 +58,39 @@ resource "aws_instance" "LinuxMachine1" {
     Owner       = "Silambu"
   }
 }
+
+data "aws_ami" "amazon_linux_2023" {
+  most_recent = true
+
+  owners = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023.*-x86_64"]
+  }
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
+
+resource "aws_instance" "LinuxMachine3" {
+  ami           = data.aws_ami.amazon_linux_2023.id
+  instance_type = "t3.micro"
+  key_name      = "sshkey-si"
+
+  tags = {
+    Name        = "Ansible_server"
+    Environment = "Dev"
+    Owner       = "Silambu"
+  }
+}
+
+
+
+
+
 /*
 data "aws_ami" "windows_2022" {
   most_recent = true
