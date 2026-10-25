@@ -76,7 +76,7 @@ data "aws_ami" "amazon_linux_2023" {
 }
 
 resource "aws_instance" "LinuxMachine3" {
-  ami           = data.aws_ami.amazon_linux_2023.id
+  ami           = "ami-022374b883d9d7931"
   instance_type = "t3.micro"
   key_name      = "sshkey-si"
 
@@ -88,7 +88,7 @@ resource "aws_instance" "LinuxMachine3" {
 }
 
 resource "aws_instance" "eksbootstrap" {
-  ami           = data.aws_ami.amazon_linux_2023.id
+  ami           = "ami-022374b883d9d7931"
   instance_type = "t3.micro"
   key_name      = "sshkey-si"
 
