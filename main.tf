@@ -87,6 +87,18 @@ resource "aws_instance" "LinuxMachine3" {
   }
 }
 
+resource "aws_instance" "eksbootstrap" {
+  ami           = data.aws_ami.amazon_linux_2023.id
+  instance_type = "t3.micro"
+  key_name      = "sshkey-si"
+
+  tags = {
+    Name        = "eks_bootstrap_server"
+    Environment = "Dev"
+    Owner       = "Silambu"
+  }
+}
+
 
 
 
