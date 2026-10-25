@@ -91,6 +91,8 @@ resource "aws_instance" "eksbootstrap" {
   ami           = "ami-022374b883d9d7931"
   instance_type = "t3.micro"
   key_name      = "sshkey-si"
+  iam_instance_profile = aws_iam_instance_profile.eks_admin_profile.name
+
 
   tags = {
     Name        = "eks_bootstrap_server"
