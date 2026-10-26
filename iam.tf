@@ -17,7 +17,6 @@ resource "aws_iam_role_policy_attachment" "admin" {
   role       = aws_iam_role.eks_admin_role.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
-
 resource "aws_iam_instance_profile" "eks_admin_profile" {
   name = "eks-admin-profile"
   role = aws_iam_role.eks_admin_role.name
