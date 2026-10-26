@@ -12,7 +12,6 @@ resource "aws_iam_role" "eks_admin_role" {
     }]
   })
 }
-
 resource "aws_iam_role_policy_attachment" "admin" {
   role       = aws_iam_role.eks_admin_role.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
