@@ -17,8 +17,8 @@ resource "aws_default_security_group" "default" {
 
   ingress {
     description = "Allow SSH from anywhere"
-    from_port   = 22
-    to_port     = 8089
+    from_port   = 21
+    to_port     = 8999
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]   # replace with your IP for better security
   }
@@ -35,7 +35,7 @@ resource "aws_default_security_group" "default" {
 data "aws_vpc" "default" {
   default = true
 }
-
+/*
 resource "aws_instance" "LinuxMachine" {
   ami           = "ami-090d68841c2a28756"        # replace with valid AMI
   instance_type = "t3.micro"
@@ -105,7 +105,7 @@ resource "aws_instance" "eksbootstrap" {
 
 
 
-/*
+
 data "aws_ami" "windows_2022" {
   most_recent = true
   owners      = ["amazon"]
